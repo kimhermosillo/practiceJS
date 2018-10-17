@@ -70,5 +70,98 @@ console.log(whatDoYouDo('traveler', 'Shaun'))
 // ARRAYS
 var names = ['Kim', 'Mary', 'Angie', 'Georgia']
 var kim = ['Kim', 'Hermosillo', 1996, 'Software Developer', false]
-
 kim.push('blue')
+
+//OBJECTS AND PROPERTIES
+
+var kim = {
+  firstName: 'Kim',
+  lastName: 'Hermosillo',
+  birthYear: 1996,
+  family: ['Raquel', 'Leo', 'Melissa', 'Kaylee', 'Leonardo'],
+  job: 'software developer',
+  isMarried: false,
+}
+console.log(kim) // = Object of Kim
+console.log(kim['lastName']) // = Hermosillo
+var x = 'birthYear'
+console.log(kim[x]) // = 1996
+
+var martin = new Object()
+martin.name = 'Martin'
+martin.birthYear = 1985,
+martin['lastName'] = 'Kovinchick'
+console.log(martin)
+
+//OBJECTS AND METHODS
+var kim = {
+  firstName: 'Kim',
+  lastName: 'Hermosillo',
+  birthYear: 1996,
+  family: ['Raquel', 'Leo', 'Melissa', 'Kaylee', 'Leonardo'],
+  job: 'software developer',
+  isMarried: false,
+  calcAge: function(birthYear) {
+    this.age = 2018 - this.birthYear
+  },
+}
+console.log(kim.calcAge()) // = 22 years
+
+kim.calcAge()
+console.log(kim)
+
+// LOOPS AND ITERATION
+// for (var i = 0; i < 10; i++) {
+//   console.log(i)
+// }
+
+var kim = ['Kim', 'Hermosillo', 1996, 'developer', false]
+
+for (var i = 0; i < kim.length; i++){
+  console.log(kim[i])
+}
+while (i < kim.length) {
+  console.log(kim[i])
+}
+
+// continue and break statements
+var kim = ['Kim', 'Hermosillo', 1996, 'developer', false]
+for (var i = 0; i < kim.length; i++) {
+  if (typeof kim[i] !== 'string') continue
+  console.log(kim[i])
+}
+
+for (var i = 0; i < kim.length; i++) {
+  if(typeof kim[i] !== 'string') break
+  console.log(kim[i])
+}
+
+// Calculate the average tip!
+var kim ={
+  fullName: 'Kimberly Hermosillo',
+  bills: [124, 48,268, 180, 42],
+  calcTips: function() {
+    this.tips = [],
+    this.finalValue = []
+
+    for (var i = 0; i < this.bills.length; i++) {
+      // DETERMINE PERCENTAGE BASED ON TIPPING RULES
+      var percentage
+      var bill = this.bills[i]
+
+      if (bill < 50) {
+        percentage = .2
+      } else if (bill >= 50 && bill < 200) {
+        percentage =.15
+      } else {
+        percentage = 0.1
+      }
+      // ADD RESULT TO CORRESPONDING ARRAYS
+      this.tips[i] = bill * percentage
+      this.finalValue[i] = bill + bill + percentage
+    }
+  },
+}
+
+kim.calcTips()
+console.log(kim)
