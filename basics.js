@@ -165,3 +165,49 @@ var kim ={
 
 kim.calcTips()
 console.log(kim)
+
+// PART 2 
+var martin ={
+  fullName: 'Martin Kovinchick',
+  bills: [77, 475, 229, 184, 48],
+  calcTips: function() {
+    this.tips = [],
+    this.finalValue = []
+  
+    for (var i = 0; i < this.bills.length; i++) {
+      // DETERMINE PERCENTAGE BASED ON TIPPING RULES
+      var percentage
+      var bill = this.bills[i]
+  
+      if (bill < 100) {
+        percentage = .20
+      } else if (bill >= 100 && bill < 300) {
+        percentage =.10
+      } else {
+        percentage = 0.25
+      }
+      // ADD RESULT TO CORRESPONDING ARRAYS
+      this.tips[i] = bill * percentage
+      this.finalValue[i] = bill + bill + percentage
+    }
+  },
+}
+function calcAverage(tips) {
+  var sum = 0
+  for (var i = 0; i < tips.length; i++) {
+    sum = sum + tips[i]
+  }
+  return sum / tips.length
+}
+
+martin.calcTips()
+
+kim.average = calcAverage(kim.tips)
+martin.average = calcAverage(martin.tips)
+console.log(kim, martin)
+
+if (kim.average > martin.average) {
+  console.log(kim.fullName + 'pays higher tips')
+} else if (martin.average > kim.average) {
+  console.log(martin.fullName + ' pays higher tips')
+}
