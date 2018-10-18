@@ -19,3 +19,39 @@ function foo() {
 }
 foo()
 console.log(age)
+
+// KEYWORD THIS
+//console.log(this)
+
+function calculateAge(year) {
+  console.log(2016 - year)
+  console.log(this)
+}
+
+calculateAge(1996)
+
+var kim = {
+  name: 'Kimberly',
+  yearOfBirth: 1996,
+  calculateAge: function () {
+    console.log(this)
+    console.log(2018 - this.yearOfBirth)
+
+    function innerFunction() {
+      console.log(this)
+    }
+    innerFunction()
+  },
+}
+
+kim.calculateAge()
+
+var kimmy = {
+  name: 'Kimmy',
+  yearOfBirth: 1996,
+}
+
+kimmy.calculateAge = kim.calculateAge
+kimmy.calculateAge() 
+
+//END OF THEORETICAL LECTURES
