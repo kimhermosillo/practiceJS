@@ -21,9 +21,24 @@ document.getElementById('current-0').textContent = '0'
 document.getElementById('current-1').textContent = '0'
 
 document.querySelector('.btn-roll').addEventListener('click', function () {
+  // RANDOM NUMBER
   var dice = Math.floor(Math.random() * 6) + 1
+  // DISPLAYING RESULT
   var diceDOM =   document.querySelector('.dice')
   diceDOM.style.display = 'block'
   diceDOM.src = 'dice-' + dice + '.png'
-  
+  //UPDATE ROUND SCORE IF THE ROLLED NO WASN'T 1
+  if (dice !== 1) {
+    //adding score
+    roundScore += dice
+    document.querySelector('#current-' + activePlayer).textContent = roundScore
+  } else {
+    //other player
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0
+    roundScore = 0
+
+    document.getElementById('current-0').textContent = '0'
+    document.getElementById('current-1').textContent = '0'
+    
+  } 
 })
