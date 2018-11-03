@@ -54,7 +54,7 @@ var martin = Object.create(personProto, {
   job: { value: 'lover' },
 })
 */
-
+/*
 // PRIMITIVE VS OBJECTS
 //PRIMITIVES
 var a = 69
@@ -87,3 +87,38 @@ change(age, obj)
 
 console.log(age)
 console.log(obj.city)
+*/
+
+//LECTURE; PASSING FUNCTIONS AS ARGUMENTS
+
+var years = [1985, 1992, 1996, 1999, 2017]
+
+function arrayCalc(arr, fn) {
+  var arrRes = []
+  for (var i = 0; i < arr.length; i++) {
+    arrRes.push(fn(arr[i]))
+  }
+  return arrRes
+}
+
+function calculateAge(el) {
+  return 2018 - el
+}
+
+function isFullAge(el) {
+  return el >= 19
+}
+
+function maxHeartRate(el) {
+  if (el >= 18 && el <=81){
+
+    return Math.round(206.9 - (0.67 * el))
+  }
+}
+
+var ages = arrayCalc(years, calculateAge)
+var fullAges = arrayCalc(ages, isFullAge)
+var heartRate = arrayCalc(ages, maxHeartRate)
+console.log(ages)
+console.log(fullAges)
+console.log(heartRate)
