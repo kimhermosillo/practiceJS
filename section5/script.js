@@ -5,3 +5,4 @@ var kim = {
   yearOfBirth: 1996,
   job: 'developer',
 }
+
