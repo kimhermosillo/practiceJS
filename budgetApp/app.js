@@ -2,7 +2,36 @@
 
 var budgetController = (function () {
 
-    // some code
+    var Expense = function(id, description, value) {
+        this.id = id
+        this.description = description
+        this.value = value
+    }
+
+    var Income = function(id, description, value) {
+        this.id = id
+        this.description = description
+        this.value = value
+    }
+
+
+    var allExpenses = []
+    var allIncomes = []
+    var totalExpenses = 0
+
+    var data = {
+        allItems: {
+            exp: [],
+            inc: [],
+        },
+        totals: {
+            exp: 0,
+            inc: 0
+
+        }
+    }
+
+
 
 })()
 // UI CONTROLLER
@@ -17,9 +46,10 @@ var UIController = (function () {
 
     return {
         getinput: function () {
-            type: document.querySelector(DOMstrings.inputType).value,
-                description: document.querySelector(DOMstrings.inputDescription).value,
-                    value: document.querySelector(DOMstrings.inputValue).value,
+            type: 
+                document.querySelector(DOMstrings.inputType).value 
+                description: document.querySelector(DOMstrings.inputDescription).value
+                value: document.querySelector(DOMstrings.inputValue).value,
     }
     }
     getDOMstrings: function() {
@@ -47,7 +77,7 @@ var controller = (function (budgetController, UIController) {
     var ctrlAddItem = function () {
         // 1. GET THE FILLED INPUT DATA
         var input = UIController.getinput()
-        console.log(input)
+        
         //2. ADD THE ITEM TO THE BUDGET CONTROLLER
 
         //3. ADD THE NEW ITEM TO UI
